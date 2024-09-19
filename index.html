@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section id="container">
+        <!-- Imagen de logo -->
+        <img src="img/fotoderecha.jpg" alt="Logo">
+        <!-- Formulario de inicio de sesión -->
+        <form name="login" onsubmit="return Login(event);">
+            <h3>Iniciar sesión</h3>
+            <img src="img/iconoUser.png" alt="Icono de usuario">
+            <!-- Campos de usuario y contraseña -->
+            <input type="text" name="username" placeholder="Nombre de usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="submit" value="Iniciar sesión">
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+
+    <!-- Función de JavaScript para validar login -->
+    <script>
+        function Login(event) {
+            // Evitar que el formulario se envíe automáticamente
+            event.preventDefault();
+
+            var usuario = document.login.username.value;
+            var password = document.login.password.value;
+
+            // Validar usuario y contraseña
+            if (usuario === "user" && password === "admin") {
+                window.location = "home.html"; // Redirigir si las credenciales son correctas
+            } else if (usuario === "user2" && password === "admin") {
+                window.location = "home.html"; // Redirigir para otro usuario
+            } else {
+                alert("Usuario o contraseña incorrectos."); // Mostrar alerta si no coincide
+            }
+        }
+    </script>
+
+    <!-- Deshabilitar el menú contextual con clic derecho -->
+    <script>
+        document.oncontextmenu = function() { return false; };
+    </script>
+</body>
+</html>
